@@ -36,3 +36,12 @@ python simple_3d_game.py
 
 You should see a window with a spinning cube. Press `SPACE` to hear a sound.
 
+
+## Browser Version
+
+A simple HTML/JavaScript version of the guessing game is available.
+
+### Running
+
+Open `guess_game.html` in a web browser. It requires no additional dependencies.
+
