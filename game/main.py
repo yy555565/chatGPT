@@ -33,6 +33,14 @@ edges = (
 # Simple object classes
 class GameObject:
     def __init__(self, x=0, y=0, z=0):
+        """
+        Initializes a GameObject at the specified 3D coordinates.
+        
+        Args:
+            x: The initial x-coordinate. Defaults to 0.
+            y: The initial y-coordinate. Defaults to 0.
+            z: The initial z-coordinate. Defaults to 0.
+        """
         self.x = x
         self.y = y
         self.z = z
@@ -43,12 +51,22 @@ class Player(GameObject):
 class Bot(GameObject):
     def update(self):
         # Random walk as a placeholder
+        """
+        Updates the bot's position by applying a random step to its x and z coordinates.
+        
+        Simulates a simple random walk movement for the bot each time it is called.
+        """
         self.x += random.choice([-0.1, 0, 0.1])
         self.z += random.choice([-0.1, 0, 0.1])
 
 class Monster(GameObject):
     def update(self):
         # Random walk placeholder
+        """
+        Updates the monster's position by applying a small random step to its x and z coordinates.
+        
+        Simulates a random walk movement pattern for the monster.
+        """
         self.x += random.choice([-0.05, 0, 0.05])
         self.z += random.choice([-0.05, 0, 0.05])
 
@@ -59,6 +77,14 @@ class Block(GameObject):
 # Draw cube at given position
 
 def draw_cube(x, y, z):
+    """
+    Renders a wireframe cube at the specified 3D coordinates.
+    
+    Args:
+        x: The x-coordinate of the cube's position.
+        y: The y-coordinate of the cube's position.
+        z: The z-coordinate of the cube's position.
+    """
     glPushMatrix()
     glTranslatef(x, y, z)
     glBegin(GL_LINES)
@@ -70,6 +96,11 @@ def draw_cube(x, y, z):
 
 
 def main():
+    """
+    Runs the main game loop for the 3D game demo.
+    
+    Initializes PyGame and OpenGL, sets up the display and perspective, and creates player, block, bot, and monster objects. Handles user input for movement and block placement, updates AI entities, renders all objects each frame, and manages the game loop until exit.
+    """
     pygame.init()
     pygame.mixer.init()
     screen = pygame.display.set_mode((800, 600), DOUBLEBUF | OPENGL)
@@ -85,6 +116,11 @@ def main():
 
     # Simple sound effect using built-in beep
     def play_beep():
+        """
+        Plays a short 440 Hz beep sound effect.
+        
+        Generates a sine wave buffer and plays it as a brief audio cue using PyGame's sound system.
+        """
         duration = 100  # milliseconds
         freq = 440  # Hz
         sample_rate = 44100
